@@ -17,7 +17,7 @@ export default class SequelizeStateMachine {
     const handleInitStateMachine = (instance) => {
       instance[field] = init;
     };
-
+    
     Model.prototype.fsm = function () {
       const initState = this.get(field);
 

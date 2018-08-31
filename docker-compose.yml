@@ -3,16 +3,14 @@ version: "2"
 services:
   db:
     image: postgres:10.4
-    container_name: payment-db
+    container_name: state-machine-db
     ports:
       - "5432:5432"
-    volumes:
-      - ./docker/data/postgres:/var/lib/postgresql/data
       
   web:
     build: .
-    image: payment/web
-    container_name: payment-web
+    image: state-machine/web
+    container_name: state-machine-web
     command: bash -c ""
     volumes: &web-volumes
       - ./:/app

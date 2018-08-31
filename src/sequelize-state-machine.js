@@ -1,7 +1,7 @@
 const StateMachine = require('javascript-state-machine');
 const capitalize = require('lodash.capitalize');
 
-export default class SequelizeStateMachine {
+class SequelizeStateMachine {
   static addStateMachine(Model, options) {
     const { field = 'state', init = 'none', transitions } = options;
 
@@ -49,3 +49,5 @@ export default class SequelizeStateMachine {
     Model.beforeCreate('handleInitStateMachine', handleInitStateMachine);
   }
 }
+
+module.exports = SequelizeStateMachine;

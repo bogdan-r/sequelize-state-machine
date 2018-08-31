@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  db:
+    image: postgres:10.4
+    container_name: payment-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/data/postgres:/var/lib/postgresql/data
+      
+  web:
+    build: .
+    image: payment/web
+    container_name: payment-web
+    command: bash -c ""
+    volumes: &web-volumes
+      - ./:/app
+      - ~/.ssh:/root/.ssh
+      - ~/.bash_history:/root/.bash_history
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    environment: &web-environment
+      POSTGRESQL_HOST: db
+      NODE_ENV: development
+      APP_PORT: 8080
+      

@@ -1,5 +1,7 @@
 const StateMachine = require('javascript-state-machine');
-const capitalize = require('lodash.capitalize');
+const capitalize = require('./utils/capitalize');
+const camelCase = require('./utils/camelCase');
+
 
 class SequelizeStateMachine {
   static addStateMachine(Model, options) {
@@ -38,7 +40,7 @@ class SequelizeStateMachine {
     });
 
     states.forEach((state) => {
-      const capitalizedState = capitalize(state);
+      const capitalizedState = capitalize(camelCase(state));
       Model.prototype[`is${capitalizedState}`] = function () {
         const fsm = this.fsm();
 

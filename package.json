@@ -4,7 +4,7 @@
   "description": "Finite state machine for sequelize ORM",
   "main": "index.js",
   "scripts": {
-    "test": "yarn test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/bogdan-r/sequelize-state-machine#readme",
   "dependencies": {
-    "javascript-state-machine": "^3.1.0",
-    "lodash.capitalize": "^4.2.1"
+    "javascript-state-machine": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
